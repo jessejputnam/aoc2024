@@ -18,6 +18,9 @@ class Manual:
                 return i
         return -1
 
+    def get_indices(self, page: list[int], rule: list[int]) -> list[int]:
+        return [self.get_index(page, rule[0]), self.get_index(page, rule[1])]
+
     def calc_middle_sums(self, idxs: list[int] = None):
         if idxs is None:
             for page in self.pages:
@@ -33,30 +36,25 @@ class Manual:
         for rule in self.rules:
             valid_pages = []
             for page in self.pages:
-                a = self.get_index(page, rule[0])
-                b = self.get_index(page, rule[1])
+                a, b = self.get_indices(page, rule)
                 if a < b or -1 in [a, b]:
                     valid_pages.append(page)
             self.pages = valid_pages
         self.calc_middle_sums()
 
     def analyze2(self):
-        swapped_idxs = []
+        swapped_idxs = set()
         for idx, page in enumerate(self.pages):
             valid = False
             while not valid:
                 swaps = 0
                 for rule in self.rules:
-                    a = self.get_index(page, rule[0])
-                    b = self.get_index(page, rule[1])
+                    a, b = self.get_indices(page, rule)
                     if a > b and -1 not in [a, b]:
-                        if idx not in swapped_idxs:
-                            swapped_idxs.append(idx)
-                        page[a] = rule[1]
-                        page[b] = rule[0]
+                        swapped_idxs.add(idx)
+                        page[a], page[b] = rule[1], rule[0]
                         swaps += 1
                 valid = swaps == 0
-
         self.calc_middle_sums(swapped_idxs)
 
 
