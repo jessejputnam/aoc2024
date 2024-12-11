@@ -66,7 +66,7 @@ class CeresPart1:
                 self.check_diagonal(y, x, "down-left")
 
 
-# data = get_input(4).text
+# data = get_input(4)
 
 # matrix = data.split("\n")[:-1]
 
@@ -108,7 +108,7 @@ class CeresPart2:
                 self.check_x_mas(y, x)
 
 
-data = get_input(4).text
+data = get_input(4)
 matrix = data.split("\n")[:-1]
 
 c2 = CeresPart2(matrix)

@@ -87,7 +87,7 @@ class Parser:
             self.i += 1
 
 
-data = get_input(3).text
+data = get_input(3)
 p = Parser()
 p.read(data)
 p.get_sum()

@@ -58,7 +58,7 @@ class Manual:
         self.calc_middle_sums(swapped_idxs)
 
 
-data = get_input(5).text
+data = get_input(5)
 
 m = Manual(data)
 m.analyze2()

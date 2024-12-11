@@ -10,4 +10,4 @@ def get_input(day: int) -> str:
     url = f"https://adventofcode.com/2024/day/{day}/input"
 
     r = requests.get(url, cookies={"session": cookie})
-    return r
+    return r.text

@@ -70,5 +70,5 @@ def part_two(input: str) -> None:
 
 ####################################
 
-data = get_input(2).text
+data = get_input(2)
 part_two(data)

@@ -40,5 +40,5 @@ def part_two(input: str) -> int:
     return total
 
 
-data = get_input(1).text
+data = get_input(1)
 print(part_two(data))
